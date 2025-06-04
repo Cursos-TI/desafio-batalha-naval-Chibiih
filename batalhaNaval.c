@@ -1,15 +1,10 @@
 #include <stdio.h>
 
 // Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
+// Scheilla Vieira
 
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
-
+    
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
@@ -35,6 +30,52 @@ int main() {
     // 0 0 1 0 0
     // 1 1 1 1 1
     // 0 0 1 0 0
+
+    // Nível novato
+     // Representando o tabuleiro com a matriz (10x10)
+     int tabuleiro[10][10];
+
+     // Inicializando todas as posições com 0, indicando a água
+     for (int i = 0; i < 10; i++) {
+         for (int j = 0; j < 10; j++) {
+             tabuleiro[i][j] = 0;
+         }
+     }
+ 
+     // Declaração dos navios
+     int navio_horizontal[3] = {3, 3, 3};
+     int navio_vertical[3] = {3, 3, 3};
+
+     // Coordenadas iniciais para o navio horizontal
+    int linha_navio_horizontal = 2; 
+    int coluna_navio_horizontal = 4; 
+
+    // Coordenadas iniciais para o navio vertical
+    int linha_navio_vertical = 5; 
+    int coluna_navio_vertical = 7;
+
+    // Posicionando o navio horizontal no tabuleiro
+    for (int i = 0; i < 3; i++) {
+        if (coluna_navio_horizontal + i < 10) {
+            tabuleiro[linha_navio_horizontal][coluna_navio_horizontal + i] = navio_horizontal[i];
+        }
+    }
+
+    // Posicionando o navio vertical no tabuleiro
+    for (int i = 0; i < 3; i++) {
+        if (linha_navio_vertical + i < 10) {
+            tabuleiro[linha_navio_vertical + i][coluna_navio_vertical] = navio_vertical[i];
+        }
+    }
+
+    // Exibindo o tabuleiro
+    printf("Tabuleiro de Batalha Naval:\n\n");
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
