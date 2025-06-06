@@ -4,11 +4,6 @@
 // Scheilla Vieira
 
 int main() {
-    
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
@@ -31,7 +26,7 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
-    // Nível novato
+    // Nível novato e adicionando o nivel aventureiro
      // Representando o tabuleiro com a matriz (10x10)
      int tabuleiro[10][10];
 
@@ -42,29 +37,52 @@ int main() {
          }
      }
  
+     // Tamanho fixo dos navios
+     int tamanhoNavio = 3;
+
      // Declaração dos navios
      int navio_horizontal[3] = {3, 3, 3};
      int navio_vertical[3] = {3, 3, 3};
 
-     // Coordenadas iniciais para o navio horizontal
+     // Coordenadas dos navios
     int linha_navio_horizontal = 2; 
     int coluna_navio_horizontal = 4; 
-
-    // Coordenadas iniciais para o navio vertical
     int linha_navio_vertical = 5; 
     int coluna_navio_vertical = 7;
 
     // Posicionando o navio horizontal no tabuleiro
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < tamanhoNavio; i++) {
         if (coluna_navio_horizontal + i < 10) {
             tabuleiro[linha_navio_horizontal][coluna_navio_horizontal + i] = navio_horizontal[i];
         }
     }
 
     // Posicionando o navio vertical no tabuleiro
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < tamanhoNavio; i++) {
         if (linha_navio_vertical + i < 10) {
             tabuleiro[linha_navio_vertical + i][coluna_navio_vertical] = navio_vertical[i];
+        }
+    }
+    // Navio diagonal --- Nivel aventureiro
+    int navio_diagonal1[3] = {3, 3, 3};
+    int navio_diagonal2[3] = {3, 3, 3};
+
+    // Coodernadas do navio diagonal
+    int linha_navio_diagonal1 = 1;
+    int coluna_navio_diagonal1 = 1;
+    int linha_navio_diagonal2 = 0;
+    int coluna_navio_diagonal2 = 9;
+
+    //Posicionando
+    for (int i = 0; i < tamanhoNavio; i++) {
+        if ((linha_navio_diagonal1 + i < 10) && (coluna_navio_diagonal1 + i < 10)) {
+            tabuleiro[linha_navio_diagonal1 + i][coluna_navio_diagonal1 + i] = navio_diagonal1[i];
+        }
+    }
+
+    for (int i = 0; i < tamanhoNavio; i++) {
+        if ((linha_navio_diagonal2 + i < 10) && (coluna_navio_diagonal2 - i >= 0)) {
+            tabuleiro[linha_navio_diagonal2 + i][coluna_navio_diagonal2 - i] = navio_diagonal2[i];
         }
     }
 
